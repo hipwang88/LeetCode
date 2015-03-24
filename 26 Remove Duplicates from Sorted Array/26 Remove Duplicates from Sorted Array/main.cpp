@@ -24,12 +24,12 @@ class Solution
 public:
     int removeDumplicates(int A[], int n)
     {
-        int nLength = 1;
-        
         if (n > 0)
         {
+            int nLength = 1;
             int *p = A;
             int *q = A;
+            
             while (n)
             {
                 if (*q == *p)
@@ -43,11 +43,13 @@ public:
                     ++q;
                     ++nLength;
                 }
-                --n;
+                n--;
             }
+            
+            return nLength;
         }
-        
-        return nLength;
+        else
+            return 0;
     }
     
     void outPutArray(int A[], int n)
@@ -62,8 +64,8 @@ public:
 int main(int argc, const char * argv[])
 {
     // insert code here...
-    int sortedArray[] = {1,1,2,2,3,3,3,4,4,4,5,5,5,6,7,8,9,10,11,12,12,12,12,12,14,15,15};
-    
+    int sortedArray[] = {1,1,2,2,3,3,3,4,4,4,5,5,5,6,7,8,9,10,11,12,12,12,12,12,14,15,15,16};
+    //int sortedArray[] = {0,0,0,0,0};
     Solution s;
     int newLength = s.removeDumplicates(sortedArray, sizeof(sortedArray)/sizeof(int));
     s.outPutArray(sortedArray, newLength);
